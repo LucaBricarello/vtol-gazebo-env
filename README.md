@@ -114,7 +114,7 @@ pixi run sitl_x8
 
 ## 🎮 Interazione con Mission Planner (Windows/Host)
 
-Il simulatore è configurato per inviare i dati di telemetria all'esterno del container. Puoi collegarti usando **Mission Planner** da un PC Windows o dalla stessa macchina host:
+Il simulatore è configurato per inviare i dati di telemetria all'esterno del container. Puoi collegarti usando **Mission Planner** da un PC Windows o dalla stessa macchina host (sconsigliato, Mission Planner non gira nativamente su Ubuntu, bisognerebbe usare MONO per farlo girare):
 
 1.  Apri Mission Planner.
     
@@ -123,6 +123,8 @@ Il simulatore è configurato per inviare i dati di telemetria all'esterno del co
 3.  Clicca su **Connect**.
     
 4.  Inserisci la porta di default: `14550`.
+
+> **Nota:** su sistema Ubuntu si potrebbe pensare di usare QGroundControl che funziona nativamente (non testato, ma dovrebbe funzionare)
     
 
 ### Configurazione per Volo Autonomo
