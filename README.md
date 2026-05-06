@@ -20,7 +20,7 @@ L'intero ambiente è containerizzato in Docker per garantire la massima compatib
 Bash
 
 ```
-git clone https://github.com/tuo-username/vtol-gazebo-env.git
+git clone https://github.com/LucaBricarello/vtol-gazebo-env.git
 cd vtol-gazebo-env
 
 ```
