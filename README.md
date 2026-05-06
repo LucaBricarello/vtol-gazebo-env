@@ -112,6 +112,31 @@ pixi run sitl_x8
 
 ----------
 
+## Simulazione alternativa con X-Plane 11
+
+Per utilizzare X-Plane 11 come motore fisico al posto di Gazebo, segui questi passaggi:
+1. Configurazione X-Plane (PC Windows)
+
+    Data Output: Vai in Settings > Data Output e attiva la quarta casella (Trasmissione di rete via UDP) per le righe:
+
+        1 (Times),3 (Speeds), 4, 13, 16 (Angular Velocities), 17 (Pitch/Roll/Yaw), 37,38,39, 136.
+
+        Imposta l'indirizzo IP del tuo PC Ubuntu nel campo "Configurazione di rete" e usa la porta 49001, tick su Inviare dati sulla rete.
+
+    Network: In Settings > Network, switch on Accettare connessioni in ingresso.
+
+3. Avvio del SITL nel Container
+
+Apri un terminale nel container e lancia:
+Bash
+
+export GCS_IP="192.168.1.80"  # IP del PC con X-Plane e Mission Planner
+pixi run xplane_sitl
+
+Il comando utilizzerà --sim-address=$GCS_IP per connettersi a X-Plane sulla porta 49000 e riceverà i dati sulla 49001.
+
+----------
+
 ## 🎮 Interazione con Mission Planner (Windows/Host)
 
 Il simulatore è configurato per inviare i dati di telemetria all'esterno del container. Puoi collegarti usando **Mission Planner** da un PC Windows o dalla stessa macchina host (sconsigliato, Mission Planner non gira nativamente su Ubuntu, bisognerebbe usare MONO per farlo girare):
@@ -136,3 +161,7 @@ Per eseguire una missione completa (Decollo Verticale -> Volo -> Atterraggio Ver
 -   **Creazione Missione:** 1. Il primo comando **deve** essere `VTOL_TAKEOFF`. 2. Aggiungi i `WAYPOINT` per la navigazione aerea. 3. Concludi con il comando `VTOL_LAND`.
     
 -   **Esecuzione:** Passa in modalità **AUTO** e arma il drone.
+
+## Nota finale
+
+Il sistema è stato testato su 2 pc differenti uno con ubuntu 22 e l'altro con windows 11, dovrebbe funzionare tutto quanto anche usando solo il pc windows 11 con il docker container gestito o da docker desktop o con wsl.
