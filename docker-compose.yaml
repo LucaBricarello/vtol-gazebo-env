@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  vtol_sim:
+    build: 
+      context: .
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+    container_name: gazebo_ardupilot_env
+    privileged: true
+    network_mode: "host"
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - GZ_SIM_SYSTEM_PLUGIN_PATH=/workspace/ardupilot_gazebo/build
+      # Qui Gazebo sa per sempre dove cercare i modelli custom:
+      - GZ_SIM_RESOURCE_PATH=/workspace/ardupilot_gazebo/models:/workspace/ardupilot_gazebo/worlds:/workspace/SITL_Models/Gazebo/models:/workspace/SITL_Models/Gazebo/worlds
+    volumes:
+      - ./pixi.toml:/workspace/pixi.toml:ro
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - workspace_data:/workspace/ardupilot
+      - workspace_data_gz:/workspace/ardupilot_gazebo
+      - workspace_data_models:/workspace/SITL_Models
+    command: tail -f /dev/null
+
+volumes:
+  workspace_data:
+  workspace_data_gz:
+  workspace_data_models:

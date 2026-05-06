@@ -1,0 +1,20 @@
+[workspace]
+name = "vtol-gazebo-env"
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[dependencies]
+python = ">=3.10"
+pexpect = "*"
+future = "*"
+lxml = "*"
+pyyaml = "*"
+
+[pypi-dependencies]
+MAVProxy = "*"
+pymavlink = "*"
+empy = "==3.3.4"
+
+[tasks]
+run_sitl = "python ardupilot/Tools/autotest/sim_vehicle.py -v ArduPlane -f quadplane --model JSON --console --out=udp:$GCS_IP:14550"
+sitl_x8 = "python ardupilot/Tools/autotest/sim_vehicle.py -v ArduPlane --model JSON --add-param-file=/workspace/SITL_Models/Gazebo/config/skywalker_x8_quad.param --console --map --out=udp:$GCS_IP:14550"
