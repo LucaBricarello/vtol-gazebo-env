@@ -162,6 +162,32 @@ Per eseguire una missione completa (Decollo Verticale -> Volo -> Atterraggio Ver
     
 -   **Esecuzione:** Passa in modalità **AUTO** e arma il drone.
 
+----------
+
+## Close container
+
+Quando hai finito di lavorare ricordati di chiudere il container con
+
+Bash
+
+```
+docker compose down
+```
+
+----------
+
+## Uninstall container
+
+Se si desidera disinstallare il container
+
+Bash
+
+```
+docker compose down -v
+```
+
+----------
+
 ## Nota finale
 
 Il sistema è stato testato su 2 pc differenti uno con ubuntu 22 e l'altro con windows 11, dovrebbe funzionare tutto quanto anche usando solo il pc windows 11 con il docker container gestito o da docker desktop o con wsl.
