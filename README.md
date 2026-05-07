@@ -128,10 +128,11 @@ Per utilizzare X-Plane 11 come motore fisico al posto di Gazebo, segui questi pa
 3. Avvio del SITL nel Container
 
 Apri un terminale nel container e lancia:
-Bash
 
+```
 export GCS_IP="192.168.1.80"  # IP del PC con X-Plane e Mission Planner
 pixi run xplane_sitl
+```
 
 Il comando utilizzerà --sim-address=$GCS_IP per connettersi a X-Plane sulla porta 49000 e riceverà i dati sulla 49001.
 
@@ -186,4 +187,4 @@ docker compose down -v
 
 ## Nota finale
 
-Il sistema è stato testato su 2 pc differenti uno con ubuntu 22 e l'altro con windows 11, dovrebbe funzionare tutto quanto anche usando solo il pc windows 11 con il docker container gestito o da docker desktop o con wsl.
+Il sistema è stato testato su 2 pc differenti uno con ubuntu 22 e l'altro con windows 11, dovrebbe funzionare tutto quanto anche usando solo il pc windows 11 con il docker container gestito o da docker desktop o con WSLg.
