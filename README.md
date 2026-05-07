@@ -168,8 +168,6 @@ Per eseguire una missione completa (Decollo Verticale -> Volo -> Atterraggio Ver
 
 Quando hai finito di lavorare ricordati di chiudere il container con
 
-Bash
-
 ```
 docker compose down
 ```
@@ -179,8 +177,6 @@ docker compose down
 ## Uninstall container
 
 Se si desidera disinstallare il container
-
-Bash
 
 ```
 docker compose down -v
